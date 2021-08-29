@@ -26,14 +26,16 @@ const searchTeams = () => {
 const displayTeams = teams =>
 {
     console.log(teams);
-    const allTeams = document.getElementById('allTeams');
 
-      teams.forEach( team => 
+    const allTheTeams = document.getElementById('all-Teams');
+    allTheTeams.textContent = '';
+
+      teams.forEach( team =>  
       {
-        // console.log(team);
-        const dynamicTeams = document.createElement('div');
-        dynamicTeams.classList.add('col');
-        dynamicTeams.innerHTML =
+        console.log(team);
+        const div = document.createElement('div');
+        div.classList.add('col');
+        div.innerHTML =
         `
         <div class="card" style="width: 18rem;">
         <img src="${team.strStadiumThumb}" class="card-img-top" alt="...">
@@ -45,7 +47,7 @@ const displayTeams = teams =>
 
         `;
 
-        allTeams.appendChild(dynamicTeams);
+        allTheTeams.appendChild(div);
 
       });
       //forEach
