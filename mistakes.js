@@ -1,7 +1,17 @@
 /* 
+Mistake(1)
+
 if (searchFieldText == '') //Right
-Mistake -->
+Mistake --> Forget to take the variable
 if (searchField.value == '') 
+
+Mistake(2)
+const url = `https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=${searchFieldText}`; //Right
+
+Mistake --> Wrong URL
+const url = `https://www.thesportsdb.com/api/v1/json/1/searchteams.php?sname=${searchFieldText}`; 
+
+
 */
 
 
