@@ -91,16 +91,17 @@ const displaySelectedTeam = team =>
   particularTeam.textContent = '';
 
   const anotherDiv = document.createElement('div');
+  anotherDiv.classList.add('card');
   anotherDiv.innerHTML =
   `
-  <div class="card w-25 p-5">
+  
   <img src="${team.strTeamBadge}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">${team.strTeam}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="${team.strYoutube}" class="btn btn-primary">View</a>
+    <p class="card-text">${team.strDescriptionEN.slice(0, 200)}</p>
+    <a href="https://www.youtube.com/watch?v=eRrMaxAE-SY&ab_channel=WatchMojo.com" target="_blank" class="btn btn-danger">View</a>
   </div>
-  </div>
+  
   
 
   `;
