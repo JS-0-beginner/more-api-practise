@@ -25,21 +25,21 @@ const searchTeams = () => {
 
 const displayTeams = teams =>
 {
-    console.log(teams);
+    // console.log(teams);
 
     const allTheTeams = document.getElementById('all-Teams');
-    allTheTeams.textContent = '';    
+    allTheTeams.textContent = ''; 
 
-    // <h1 class="text-center text-secondary">No Results Found</h1>
+    const noresult = document.getElementById('no-result');
+    noresult.textContent = '';
 
     if(teams == null)
     {
-      const noresult = document.getElementById('no-result');
-      noresult.textContent = '';
       const giveNoResult = document.createElement('div');
       giveNoResult.innerHTML =
-      `<h1 class="text-center p-5" >SPORTS DB</h1>` ;
-      allTheTeams.appendChild(giveNoResult);
+      `<h1 class="text-center p-5 text-secondary" >No Results Found</h1>` ;
+      // allTheTeams.appendChild(giveNoResult); //Caught Mistake
+      noresult.appendChild(giveNoResult); //Caught Mistake
 
     }
 
@@ -47,7 +47,7 @@ const displayTeams = teams =>
     {
       teams.forEach( team =>  
         {
-          console.log(team);
+          // console.log(team);
           const dynamicTeams = document.createElement('div');
           dynamicTeams.classList.add('col');
           dynamicTeams.innerHTML =

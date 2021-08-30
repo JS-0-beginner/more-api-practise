@@ -1,15 +1,24 @@
 /* 
-Mistake(1)
-
+////////////////////// Mistake(3) //////////////////////
 if (searchFieldText == '') //Right
+
 Mistake --> Forget to take the variable
 if (searchField.value == '') 
 
-Mistake(2)
+
+////////////////////// Mistake(3) //////////////////////
 const url = `https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=${searchFieldText}`; //Right
 
 Mistake --> Wrong URL
 const url = `https://www.thesportsdb.com/api/v1/json/1/searchteams.php?sname=${searchFieldText}`; 
+
+
+////////////////////// Mistake(3) //////////////////////
+noresult.appendChild(giveNoResult); //Right
+
+Mistake --> Wrong parent of appendchild
+allTheTeams.appendChild(giveNoResult); //Caught Mistake
+      
 
 
 */
