@@ -39,7 +39,7 @@ const displayTeams = teams =>
       giveNoResult.innerHTML =
       `<h1 class="text-center p-5 text-secondary" >No Results Found</h1>` ;
       // allTheTeams.appendChild(giveNoResult); //Caught Mistake
-      noresult.appendChild(giveNoResult); //Caught Mistake
+      noresult.appendChild(giveNoResult);
 
     }
 
@@ -52,7 +52,7 @@ const displayTeams = teams =>
           dynamicTeams.classList.add('col');
           dynamicTeams.innerHTML =
           `
-          <div class="card" w-50">
+          <div onclick="loadSelectedTeam(${team.idTeam})" class="card" w-50">
           <img src="${team.strTeamBadge}" class="card-img-top" alt="...">
           <div class="card-body">
           <h1>${team.strTeam}</h1>
@@ -71,4 +71,20 @@ const displayTeams = teams =>
     }
       
   
+}
+
+const loadSelectedTeam = teamID =>
+{
+  console.log(teamID);
+  const url = `https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${teamID}`;
+
+  fetch(url)
+  .then(res => res.json())
+  .then(data => displaySelectedTeam(data.teams[0]))
+
+}
+
+const displaySelectedTeam = team =>
+{
+  console.log(team);
 }
