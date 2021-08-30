@@ -86,5 +86,24 @@ const loadSelectedTeam = teamID =>
 
 const displaySelectedTeam = team =>
 {
-  console.log(team);
+  // console.log(team);
+  const particularTeam = document.getElementById('particular-team');
+  particularTeam.textContent = '';
+
+  const anotherDiv = document.createElement('div');
+  anotherDiv.innerHTML =
+  `
+  <div class="card w-25 p-5">
+  <img src="${team.strTeamBadge}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${team.strTeam}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="${team.strYoutube}" class="btn btn-primary">View</a>
+  </div>
+  </div>
+  
+
+  `;
+  particularTeam.appendChild(anotherDiv);
+
 }
