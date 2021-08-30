@@ -28,30 +28,47 @@ const displayTeams = teams =>
     console.log(teams);
 
     const allTheTeams = document.getElementById('all-Teams');
-    allTheTeams.textContent = '';
+    allTheTeams.textContent = '';    
 
+    // <h1 class="text-center text-secondary">No Results Found</h1>
+
+    if(teams == null)
+    {
+      const noresult = document.getElementById('no-result');
+      noresult.textContent = '';
+      const giveNoResult = document.createElement('div');
+      giveNoResult.innerHTML =
+      `<h1 class="text-center p-5" >SPORTS DB</h1>` ;
+      allTheTeams.appendChild(giveNoResult);
+
+    }
+
+    else
+    {
       teams.forEach( team =>  
-      {
-        console.log(team);
-        const div = document.createElement('div');
-        div.classList.add('col');
-        div.innerHTML =
-        `
-        <div class="card" w-50">
-        <img src="${team.strTeamBadge}" class="card-img-top" alt="...">
-        <div class="card-body">
-        <h1>${team.strTeam}</h1>
-        <p class="card-text">${team.strLeague}</p>
-        <p class="card-text">${team.strStadiumLocation}</p>
-        <p class="card-text">${team.strWebsite}</p>
-        </div>
-        </div>
-
-        `;
-
-        allTheTeams.appendChild(div);
-
-      });
-      //End of this function's forEach
+        {
+          console.log(team);
+          const dynamicTeams = document.createElement('div');
+          dynamicTeams.classList.add('col');
+          dynamicTeams.innerHTML =
+          `
+          <div class="card" w-50">
+          <img src="${team.strTeamBadge}" class="card-img-top" alt="...">
+          <div class="card-body">
+          <h1>${team.strTeam}</h1>
+          <p class="card-text">${team.strLeague}</p>
+          <p class="card-text">${team.strStadiumLocation}</p>
+          <p class="card-text">${team.strWebsite}</p>
+          </div>
+          </div>
+  
+          `;
+  
+          allTheTeams.appendChild(dynamicTeams);
+  
+        });
+        //End of this function's forEach
+    }
+      
   
 }
